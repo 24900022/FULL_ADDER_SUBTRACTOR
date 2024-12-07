@@ -50,6 +50,22 @@ Write the detailed procedure here
  
  RegisterNumber:24900022
 
+ module fulladd(input a,b,cin,output sum,carry);
+
+ assign sum = a ^ b ^ cin;
+ 
+ assign carry = (a & b) | (b & cin) | (cin & a) ;
+
+ endmodule
+
+ module fullsub(input a,b,bin,output difference,borrow);
+
+ assign difference = a ^ b ^ bin;
+
+ assign borrow = ( ~a & b) | ( bin & ~a) | (bin & ~b);
+
+ endmodule
+
 
 **RTL Schematic**
 
